@@ -153,5 +153,6 @@ if 'mtluntan' in os.environ and 'ips' in os.environ:
         password = password.strip()
         if username and password:
             accounts_list[username] = password
-    s.update(ips.split("\n"))
+    # s.update(ips.split("\n"))
+    s.update([ip for ip in ips.split("\n") if ip.strip()])
     start()
