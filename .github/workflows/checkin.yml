@@ -1,8 +1,14 @@
 name: Auto Checkin
 
 on:
+  push:
+    branches: [ main ]
+    paths:
+      - ".github/workflows/**"
+      - "requirements.txt"
+      - "main.py"
   schedule:
-    - cron: '3 0,8,16 * * *'
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 jobs:
