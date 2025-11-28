@@ -8,7 +8,7 @@ on:
       - "requirements.txt"
       - "main.py"
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '3 0,8,16 * * *'
   workflow_dispatch:
 
 jobs:
