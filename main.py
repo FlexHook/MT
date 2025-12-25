@@ -106,13 +106,13 @@ def checkIn(user, pwd):
 
 def wx_pusher_send_by_webapi(title, msg):
     if not WX_PUSHER_APP_TOKEN or not WX_PUSHER_UID: return False;
-    webapi = 'http://wxpusher.zjiecode.com/api/send/message'  # 固定网站
+    webapi = 'http://wxpusher.zjiecode.com/api/send/message'
     data = {
-        "appToken": app_token,
+        "appToken": WX_PUSHER_APP_TOKEN,
         "content": msg,
         "summary": title,
         "contentType": 1,
-        "uids": ["UID_2NeR1kpFYgBstkf1g8F5UQ1QAIN6"],  # 应用列表的ID
+        "uids": [WX_PUSHER_UID],
     }
     result = requests.post(url=webapi, json=data)
     if result.ok:
