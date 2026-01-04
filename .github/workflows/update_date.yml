@@ -28,5 +28,10 @@ jobs:
           git config --local user.name "github-actions"
           git config --local user.email "github-actions@github.com"
           git add README.md
-          git commit -m "自动更新最后更新日期" || echo "无更改"
-          git push origin main
+          if ! git diff --cached --quiet; then
+            git commit -m "自动更新最后更新日期"
+            git pull --quiet origin main
+            git push --quiet origin main
+          else
+            echo "无更改可提交"
+          fi
