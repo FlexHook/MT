@@ -35,7 +35,7 @@ def save():
     try:
         os.system('git config --local user.name "github-actions[bot]" >/dev/null 2>&1')
         os.system('git config --local user.email "github-actions[bot]@users.noreply.github.com" >/dev/null 2>&1')
-        if os.system(f'git add {fileName}  {fileName2}>/dev/null 2>&1') == 0:
+        if os.system(f'git add {fileName} {fileName2} >/dev/null 2>&1') == 0:
             os.system('git commit -m "更新" >/dev/null 2>&1')
             os.system('git pull --quiet --rebase')
             os.system('git push --quiet --force-with-lease')
